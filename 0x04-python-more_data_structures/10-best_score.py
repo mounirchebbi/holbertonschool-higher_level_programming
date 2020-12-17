@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary is None:
+    if not isinstance(a_dictionary, dict) or len(a_dictionary) == 0:
         return None
-    list = a_dictionary.items()
-    list = sorted(list, key=lambda tup: tup[1], reverse=True)
-    a, b = list[0]
-    print(a)
-    return a
+    temp = list(a_dictionary.keys())[0]
+    best = a_dictionary[temp]
+    for k, v in a_dictionary.items():
+        if v > best:
+            best = v
+            temp = k
+    return (temp)
