@@ -5,11 +5,12 @@
 class Square:
     """Square Class"""
 
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Initialization
 
         Args:
             size (int): Square Size
+            position (int, int): Square position
         """
         self.size = size
         self.position = position
