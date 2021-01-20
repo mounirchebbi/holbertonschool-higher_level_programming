@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""function that Load, add, save"""
+"""Load, add, save from json_file"""
 import sys
 
 if __name__ == "__main__":
