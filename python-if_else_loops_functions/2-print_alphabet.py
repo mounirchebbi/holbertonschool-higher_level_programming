@@ -2,5 +2,5 @@
 # 2-print_alphabet.py
 
 """one loop, print alphabet"""
-for i in range(97, 123):
-    print(f"{chr(i)}", end="")
+for i in range(ord('a'), ord('z')+1):
+    print("{:s}".format(chr(i)), end="")
