@@ -3,4 +3,4 @@
 
 """one loop, print alphabet"""
 for i in range(ord('a'), ord('z')+1):
-    print("{}".format(chr(i)), end="")
+    print("{:s}".format(chr(i)), end="")
