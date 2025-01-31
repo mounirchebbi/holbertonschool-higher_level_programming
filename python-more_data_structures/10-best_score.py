@@ -4,9 +4,9 @@
 def best_score(a_dictionary):
     if not a_dictionary:
         return None
-    
+
     max_key = None
-    max_value = float('-inf')#lowest possible value
+    max_value = float('-inf')  # lowest possible value
 
     for key, value in a_dictionary.items():
         if value > max_value:
