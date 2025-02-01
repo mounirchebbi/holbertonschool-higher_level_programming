@@ -8,6 +8,8 @@ def complex_delete(a_dictionary, value):
     for k, v in a_dictionary.items():
         if v is value:
             _keys.append(k)
+# much better verion using filter
+#   _keys = list(filter(lambda k: a_dictionnay[k] == value, a_dictionnary))
     if len(_keys) == 0:
         return (a_dictionary)
     for k in _keys:
