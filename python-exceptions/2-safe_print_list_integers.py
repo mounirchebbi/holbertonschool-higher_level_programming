@@ -12,7 +12,7 @@ def safe_print_list_integers(my_list=[], x=0):
                         counter += 1
                 except Exception as e:
                     print("input type error")
-        except Exception as e:
-            print("list index error")
+        except IndexError as e:
+            print("list index out of range")
     print()
     return counter
