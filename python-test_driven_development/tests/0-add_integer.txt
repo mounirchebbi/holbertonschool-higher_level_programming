@@ -3,7 +3,7 @@
 How to use 0-add_integer.py module
 ----------------------------------
 
-importing module 
+importing module and using ``add_integer``
 
 >>> add_integer = __import__("0-add_integer").add_integer
 >>> add_integer(1,2)
