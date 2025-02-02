@@ -1,0 +1,20 @@
+# 0-add_integer.txt
+
+How to use 0-add_integer.py module
+----------------------------------
+
+importing module 
+
+>>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer(1,2)
+3
+>>> add_integer(1)
+99
+>>> add_integer(1.2, 2.2)
+3
+>>> add_integer('a')
+TypeError: a must be an integer
+>>> add_integer(1,'b')
+TypeError: b must be an integer
+>>> add_integer(None)
+TypeError: a must be an integer
