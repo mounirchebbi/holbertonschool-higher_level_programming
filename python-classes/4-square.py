@@ -7,12 +7,12 @@ class Square:
     """Square Class"""
     def __init__(self, size=0):
         self.size = size     # size public property size
-    
-    @property                  #decoration : getter for private attribute __size
+
+    @property    # decoration : getter for private attribute __size
     def size(self):
         return self.__size
-    
-    @size.setter               #decoration : sette for private attribute __size
+
+    @size.setter    # decoration : sette for private attribute __size
     def size(self, value):
         if not isinstance(value, int):
             raise TypeError("size must be an integer")
