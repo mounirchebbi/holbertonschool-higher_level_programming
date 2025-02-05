@@ -30,4 +30,5 @@ TypeError: a must be an integer
 
 large int as input::
 >>> add_integer(float('inf') , 1)
+Traceback (most recent call last):
 OverflowError: cannot convert float infinity to integer
