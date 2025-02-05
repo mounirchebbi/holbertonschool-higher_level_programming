@@ -2,6 +2,7 @@
 # 0-add_integer.py
 """Defines Addition between two ints"""
 
+
 def add_integer(a, b=98):
     """
     Adds two ints.
