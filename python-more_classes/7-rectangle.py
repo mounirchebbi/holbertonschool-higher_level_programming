@@ -55,8 +55,8 @@ class Rectangle:
         else:
             if self.__height > 1:
                 for i in range(self.__height-1):
-                    row += str(Rectangle.print_symbol) * self.__width + "\n"
-            row += str(Rectangle.print_symbol) * self.__width
+                    row += str(self.print_symbol) * self.__width + "\n"
+            row += str(self.print_symbol) * self.__width
             return row
 
     def __repr__(self):
