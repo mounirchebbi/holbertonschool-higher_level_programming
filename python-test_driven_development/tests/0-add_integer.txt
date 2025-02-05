@@ -29,7 +29,7 @@ Traceback (most recent call last):
 TypeError: a must be an integer
 
 large int as input::
-
->>> add_integer(1e+308, 1e+308)
+>>> import sys
+>>> add_integer(sys.maxsize , 1)
 Traceback (most recent call last):
 ValueError: float overflow
