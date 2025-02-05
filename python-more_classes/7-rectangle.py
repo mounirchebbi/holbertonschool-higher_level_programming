@@ -4,7 +4,7 @@
 
 
 class Rectangle:
-    """Rectangle Class"""
+    """Rectangle Class."""
 
     number_of_instances = 0  # public class attribute
     print_symbol = "#"       # print rectangle symbol
