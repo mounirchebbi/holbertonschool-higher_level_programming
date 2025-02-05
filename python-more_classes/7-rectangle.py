@@ -56,7 +56,7 @@ class Rectangle:
             if self.__height > 1:
                 for i in range(self.__height-1):
                     row += Rectangle.print_symbol * self.__width + "\n"
-            row += "#" * self.__width
+            row += Rectangle.print_symbol * self.__width
             return row
 
     def __repr__(self):
