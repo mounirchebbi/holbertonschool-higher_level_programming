@@ -29,7 +29,6 @@ Traceback (most recent call last):
 TypeError: a must be an integer
 
 large int as input::
->>> import sys
->>> add_integer(sys.maxsize , 1)
+>>> add_integer(float('inf') , 1)
 Traceback (most recent call last):
 ValueError: float overflow
