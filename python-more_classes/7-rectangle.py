@@ -55,7 +55,7 @@ class Rectangle:
         else:
             if self.__height > 1:
                 for i in range(self.__height-1):
-                    row += "#" * self.__width + "\n"
+                    row += Rectangle.print_symbol * self.__width + "\n"
             row += "#" * self.__width
             return row
 
