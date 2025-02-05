@@ -1,6 +1,6 @@
 #!/bin/usr/python3
 # 0-rectangle.py
-"""Rectangle Module"""
+"""Defines Rectangle Class"""
 
 
 class Rectangle:
