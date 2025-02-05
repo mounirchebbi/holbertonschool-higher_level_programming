@@ -7,12 +7,12 @@ class Rectangle:
     """Rectangle Class"""
 
     number_of_instances = 0  # public class attribute
+    print_symbol = "#"       # print rectangle symbol
 
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
-        print_symbol = "#"
 
     @property
     def width(self):
