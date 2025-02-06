@@ -3,7 +3,7 @@
 """List module"""
 
 
-class Mylist (list):
+class MyList (list):
     """List clas that inherits from list"""
 
     def print_sorted(self):

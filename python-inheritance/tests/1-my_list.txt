@@ -3,14 +3,14 @@
 How to use 1-my_list.py module
 ------------------------------
 
-Defines Mylist class that inhertits from list class
+Defines MyList class that inhertits from list class
 
 Instantiation
->>> Mylist = __import__('1-my_list').Mylist
+>>> MyList = __import__('1-my_list').MyList
 
->>> list1 = Mylist()
+>>> list1 = MyList()
 >>> print(type(list1))
-<class '1-my_list.Mylist'>
+<class '1-my_list.MyList'>
 >>> list1.print_sorted()
 []
 >>> for i in range(4, 0, -1):
@@ -21,13 +21,17 @@ Instantiation
 >>> list1.print_sorted()
 [1, 2, 3, 4]
 
->>> list2 = Mylist([3, 2, 1])
+>>> list2 = MyList([3, 2, 1])
 >>> list2.print_sorted()
 [1, 2, 3]
 
+>>> list2 = MyList(["C", "B", "A"])
+>>> list2.print_sorted()
+['A', 'B', 'C']
+
 Expected Errors
 ---------------
->>> list1 = Mylist(None)
+>>> list1 = MyList(None)
 Traceback (most recent call last):
 TypeError: 'NoneType' object is not iterable
 
