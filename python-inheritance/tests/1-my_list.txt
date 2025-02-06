@@ -35,3 +35,8 @@ Expected Errors
 Traceback (most recent call last):
 TypeError: 'NoneType' object is not iterable
 
+
+>>> list2 = MyList([2, 'a', 1, 'b'])
+>>> list2.print_sorted()
+Traceback (most recent call last):
+TypeError: '<' not supported between instances of 'str' and 'int'
