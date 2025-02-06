@@ -21,8 +21,13 @@ Instantiation
 >>> list1.print_sorted()
 [1, 2, 3, 4]
 
+>>> list2 = Mylist([3, 2, 1])
+>>> list2.print_sorted()
+[1, 2, 3]
+
 Expected Errors
 ---------------
 >>> list1 = Mylist(None)
 Traceback (most recent call last):
 TypeError: 'NoneType' object is not iterable
+
