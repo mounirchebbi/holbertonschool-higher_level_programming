@@ -1,0 +1,21 @@
+# 1-my_list.txt
+
+How to use 1-my_list.py module
+------------------------------
+
+Defines Mylist class that inhertits from list class
+
+Instantiation
+>>> Mylist = __import__('1-my_list').Mylist
+
+>>> list1 = Mylist()
+>>> print(type(list1))
+<class '1-my_list.Mylist'>
+
+>>> for i in range(4, 0, -1):
+...     list1.append(i)
+>>> print(list1)
+[4, 3, 2, 1]
+
+>>> list1.print_sorted()
+[1, 2, 3, 4]
