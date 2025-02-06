@@ -11,7 +11,8 @@ Instantiation
 >>> list1 = Mylist()
 >>> print(type(list1))
 <class '1-my_list.Mylist'>
-
+>>> list1.print_sorted()
+[]
 >>> for i in range(4, 0, -1):
 ...     list1.append(i)
 >>> print(list1)
@@ -19,3 +20,9 @@ Instantiation
 
 >>> list1.print_sorted()
 [1, 2, 3, 4]
+
+Expected Errors
+---------------
+>>> list1 = Mylist(None)
+Traceback (most recent call last):
+TypeError: 'NoneType' object is not iterable
