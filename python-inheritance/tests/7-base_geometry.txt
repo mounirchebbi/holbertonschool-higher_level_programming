@@ -1,0 +1,32 @@
+# 7-base_geometry.txt
+
+How to use 7-base_geometry.py module:
+-------------------------------------
+Defines BaseGeometry class
+
+Instantiation::
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> obj = BaseGeometry()
+
+Testing area()::
+>>> try:
+...     obj.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
+
+Testing integer_validator()::
+>>> obj = BaseGeometry()
+>>> try:
+...     obj.integer_validator("shape", "a")
+... except Exception as e:
+...     print(e)
+shape must be an integer
+
+>>> obj = BaseGeometry()
+>>> try:
+...     obj.integer_validator("shape", -1)
+... except Exception as e:
+...    print(e)
+shape must be greater than 0
