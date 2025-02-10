@@ -5,9 +5,6 @@
 
 class Fish:
     """defines fish class"""
-    def __init__(self):
-        pass
-
     def swim(self):
         print("The fish is swimming")
 
@@ -17,9 +14,6 @@ class Fish:
 
 class Bird:
     """defines bird class"""
-    def __init__(self):
-        pass
-
     def fly(self):
         print("The bird is flying")
 
@@ -29,9 +23,6 @@ class Bird:
 
 class FlyingFish(Fish, Bird):
     """defines flyingfish class that inherits from fish and bird"""
-    def __init__(self):
-        super().__init__()
-
     def swim(self):
         print("The flying fish is soaring!")
 
