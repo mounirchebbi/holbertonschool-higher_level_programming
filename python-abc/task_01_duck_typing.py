@@ -2,6 +2,7 @@
 # task_01_duck_typing.py
 """Shapes module to apply duck typing on subclasses"""
 from abc import ABC, abstractmethod
+import math
 
 
 class Shape(ABC):
@@ -33,24 +34,14 @@ class Circle(Shape):
     """subclass Circle"""
     def __init__(self, radius):
         self.radius = radius
-        self.pi = 3.141592653589793
 
     def area(self):
-        return (self.radius ** 2) * self.pi
+        return (self.radius ** 2) * math.pi
 
     def perimeter(self):
-        return self.radius * 2 * self.pi
+        return self.radius * 2 * math.pi
 
 
 # stand alone function
 def shape_info(shape):
     print(f"Area: {shape.area()}\nPerimeter:{shape.perimeter()}")
-
-
-# testing
-if __name__ == "__main__":
-    circle = Circle(radius=5)
-    rectangle = Rectangle(width=4, height=7)
-
-    shape_info(circle)
-    shape_info(rectangle)
