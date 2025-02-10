@@ -20,25 +20,31 @@ class Shape(ABC):
 class Rectangle(Shape):
     """Rectangle subclass of Shape"""
     def __init__(self, width, height):
+        """Rectangle class constructor"""
         self.width = abs(width)
         self.height = abs(height)
 
     def area(self):
+        """area method def"""
         return self.width * self.height
 
     def perimeter(self):
+        """perimeter method def"""
         return (self.width + self.height) * 2
 
 
 class Circle(Shape):
     """Circle subclass of shape"""
     def __init__(self, radius):
+        """circle class constructor"""
         self.radius = abs(radius)
 
     def area(self):
+        """area method def"""
         return (self.radius ** 2) * math.pi
 
     def perimeter(self):
+        """perimeter method def"""
         return self.radius * 2 * math.pi
 
 
@@ -46,10 +52,3 @@ def shape_info(shape):
     """stand alone function ducktyping area() perimeter()"""
     print(f"Area: {shape.area()}")
     print(f"Perimeter:{shape.perimeter()}")
-
-
-circle = Circle(radius=5)
-rectangle = Rectangle(width=4, height=7)
-
-shape_info(circle)
-shape_info(rectangle)
