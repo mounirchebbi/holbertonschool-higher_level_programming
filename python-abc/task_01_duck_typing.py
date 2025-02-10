@@ -23,8 +23,8 @@ class Rectangle(Shape):
     """Rectangle subclass of Shape"""
     def __init__(self, width, height):
         """Rectangle class constructor"""
-        self.width = abs(width)
-        self.height = abs(height)
+        self.width = width
+        self.height = height
 
     def area(self):
         """area method def"""
