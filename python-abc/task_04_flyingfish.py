@@ -5,6 +5,7 @@
 
 class Fish:
     """defines fish class"""
+
     def swim(self):
         print("The fish is swimming")
 
@@ -13,7 +14,8 @@ class Fish:
 
 
 class Bird:
-    """defines bird class"""
+    """defines fish class"""
+
     def fly(self):
         print("The bird is flying")
 
@@ -23,11 +25,12 @@ class Bird:
 
 class FlyingFish(Fish, Bird):
     """defines flyingfish class that inherits from fish and bird"""
+
     def swim(self):
-        print("The flying fish is soaring!")
+        print("The flying fish is swimming!")
 
     def fly(self):
-        print("The flying fish is swimming!")
+        print("The flying fish is soaring!")
 
     def habitat(self):
         print("The flying fish lives both in water and the sky!")
