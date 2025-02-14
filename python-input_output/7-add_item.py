@@ -11,4 +11,4 @@ json_list = []
 for i in range(1, len(args)):
     json_list.append(args[i])
 save_to_json_file(json_list, "add_item.json")
-print(load_from_json_file("add_item.json"))
+json_list = load_from_json_file("add_item.json")
