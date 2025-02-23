@@ -6,6 +6,7 @@ import http.server
 import json
 from http import HTTPStatus
 
+
 class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
@@ -28,13 +29,15 @@ class SimpleHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             self.send_response(HTTPStatus.OK)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            response_data = {"version": "1.0", "description": "A simple API built with http.server"}
+            response_data = {"version": "1.0",
+                             "description": "A simple API built with http.server"}
             self.wfile.write(json.dumps(response_data).encode('utf-8'))
         else:
             self.send_response(HTTPStatus.NOT_FOUND)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
             self.wfile.write(b"Endpoint not found")
+
 
 if __name__ == '__main__':
     server_address = ('', 8000)
