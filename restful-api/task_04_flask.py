@@ -34,9 +34,13 @@ def status():
 # Dynamic route for fetching user details
 @app.route("/users/<username>")
 def get_user(username):
-    user = users.get(username)
-    if user:
-        return jsonify(user)
+    if username and username in users.keys():
+        user_data = users.get(username)
+        output = {"username": username,
+                  "name": user_data["name"],
+                  "age": user_data["age"],
+                  "city": user_data["city"]}
+        return jsonify(output)
     return jsonify({"error": "User not found"}), 404
 
 
