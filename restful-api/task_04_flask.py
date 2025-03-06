@@ -9,10 +9,6 @@ import json
 
 app = Flask(__name__)
 
-# In-memory users dictionary
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-         "john": {"name": "John", "age": 30, "city": "New York"}}
-
 
 # Root route
 @app.route("/")
