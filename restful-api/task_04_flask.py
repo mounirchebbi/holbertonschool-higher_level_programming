@@ -9,8 +9,8 @@ from flask import request
 app = Flask(__name__)
 
 # In-memory users dictionary
-# users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-#         "john": {"name": "John", "age": 30, "city": "New York"}}
+users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
+         "john": {"name": "John", "age": 30, "city": "New York"}}
 
 
 # Root route
@@ -67,4 +67,4 @@ def add_user():
 
 # Run the Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()
