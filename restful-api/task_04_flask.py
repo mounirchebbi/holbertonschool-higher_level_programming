@@ -8,10 +8,6 @@ from flask import request
 
 app = Flask(__name__)
 
-# In-memory users dictionary
-users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
-         "john": {"name": "John", "age": 30, "city": "New York"}}
-
 
 # Root route
 @app.route("/")
@@ -34,13 +30,14 @@ def status():
 # Dynamic route for fetching user data
 @app.route("/users/<username>")
 def get_user(username):
-    if username and username in users.keys():
-        user_data = users.get(username)
-        output = {"username": username,
-                  "name": user_data["name"],
-                  "age": user_data["age"],
-                  "city": user_data["city"]}
-        return jsonify(output)
+    if username in users:
+        user_data = users[username]
+        return jsonify({
+            "username": username,
+            "name": user_data["name"],
+            "age": user_data["age"],
+            "city": user_data["city"]
+        })
     return jsonify({"error": "User not found"}), 404
 
 
@@ -55,14 +52,23 @@ def add_user():
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
+    # Store only the required fields
     users[username] = {
         "name": data["name"],
         "age": data["age"],
         "city": data["city"]
     }
 
-    return jsonify({"message": "User added",
-                    "user": users[username]}), 201
+    # Return response with username included in user object
+    return jsonify({
+        "message": "User added",
+        "user": {
+            "username": username,
+            "name": data["name"],
+            "age": data["age"],
+            "city": data["city"]
+        }
+    }), 201
 
 
 # Run the Flask app
