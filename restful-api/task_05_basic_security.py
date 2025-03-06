@@ -71,7 +71,7 @@ def login():
 
     if username not in users or \
             not check_password_hash(users[username]["password"], password):
-        return jsonify({"error": "Invalid credentials"}), 401
+        return jsonify({"error": "Invalid username or password"}), 401
 
     # Create access token with user identity and role
     access_token = create_access_token(
@@ -81,6 +81,12 @@ def login():
 
     return jsonify({"access_token": access_token})
 
+# JWT protected route
+@app.route('/jwt-protected', methods=['GET'])
+@jwt_required()
+def jwt_protected():
+    return jsonify({"message": "JWT Auth: Access Granted"})
+
 
 if __name__ == "__main__":
-    app.run(debug=True)  # Debug mode for development; remove in production
+    app.run(debug=True)
