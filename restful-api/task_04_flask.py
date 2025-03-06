@@ -9,41 +9,41 @@ from flask import request
 app = Flask(__name__)
 users = {}
 
-# Root route
+
 @app.route("/")
 def home():
+    """Root route"""
+
     return "Welcome to the Flask API!"
 
 
-# Route to users data Returns only usernames
 @app.route("/data")
 def get_data():
+    """Route to users data Returns only usernames"""
+
     return jsonify(list(users.keys()))
 
 
-# Status endpoint
 @app.route("/status")
 def status():
+    """Status endpoint"""
+
     return "OK"
 
 
-# Dynamic route for fetching user data
 @app.route("/users/<username>")
 def get_user(username):
+    """Dynamic route for fetching user data"""
+
     if username in users:
-        user_data = users[username]
-        return jsonify({
-            "username": username,
-            "name": user_data["name"],
-            "age": user_data["age"],
-            "city": user_data["city"]
-        })
+        return jsonify(users[username])
     return jsonify({"error": "User not found"}), 404
 
 
-# Route add user via POST request
 @app.route("/add_user", methods=["POST"])
 def add_user():
+    """Route add user via POST request"""
+
     data = request.get_json()
     if not data or "username" not in data:
         return jsonify({"error": "Username is required"}), 400
@@ -52,14 +52,13 @@ def add_user():
     if username in users:
         return jsonify({"error": "User already exists"}), 400
 
-    # Store only the required fields
     users[username] = {
+        "username": username,
         "name": data["name"],
         "age": data["age"],
         "city": data["city"]
     }
 
-    # Return response with username included in user object
     return jsonify({"message": "User added", "user": users[username]}), 201
 
 
