@@ -5,8 +5,13 @@
 from flask import Flask
 from flask import jsonify
 from flask import request
+import json
 
 app = Flask(__name__)
+
+# In-memory users dictionary
+users = {"jane": {"name": "Jane", "age": 28, "city": "Los Angeles"},
+         "john": {"name": "John", "age": 30, "city": "New York"}}
 
 
 # Root route
@@ -15,10 +20,11 @@ def home():
     return "Welcome to the Flask API!"
 
 
-# Route to users data Returns only usernames
+# Route to users data - Returns usernames as a space-separated string
 @app.route("/data")
 def get_data():
-    return jsonify(list(users.keys()))
+    output = json.dumps(list(users.keys()))
+    return (output)
 
 
 # Status endpoint
@@ -27,40 +33,39 @@ def status():
     return "OK"
 
 
-# Dynamic route for fetching user data
+# Dynamic route for fetching user data with pretty printing
 @app.route("/users/<username>")
 def get_user(username):
     if username in users:
         user_data = users[username]
-        return jsonify({
+        response_data = {
             "username": username,
             "name": user_data["name"],
             "age": user_data["age"],
             "city": user_data["city"]
-        })
-    return jsonify({"error": "User not found"}), 404
+        }
+        # Use json.dumps with indent for pretty printing
+        return json.dumps(response_data, indent=4), 200
+    return json.dumps({"error": "User not found"}, indent=4), 404
 
 
-# Route add user via POST request
+# Route add user via POST request with pretty printing
 @app.route("/add_user", methods=["POST"])
 def add_user():
     data = request.get_json()
     if not data or "username" not in data:
-        return jsonify({"error": "Username is required"}), 400
+        return json.dumps({"error": "Username is required"}, indent=4), 400
 
     username = data["username"]
     if username in users:
-        return jsonify({"error": "User already exists"}), 400
-
-    # Store only the required fields
+        return json.dumps({"error": "User already exists"}, indent=4), 400
     users[username] = {
         "name": data["name"],
         "age": data["age"],
         "city": data["city"]
     }
 
-    # Return response with username included in user object
-    return jsonify({
+    response_data = {
         "message": "User added",
         "user": {
             "username": username,
@@ -68,7 +73,8 @@ def add_user():
             "age": data["age"],
             "city": data["city"]
         }
-    }), 201
+    }
+    return json.dumps(response_data, indent=4), 201
 
 
 # Run the Flask app
