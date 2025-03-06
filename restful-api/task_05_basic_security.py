@@ -1,12 +1,22 @@
 #!/usr/bin/python3
 """Flask webserver with Basic Authentication"""
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_jwt_extended import JWTManager, jwt_required
+from flask_jwt_extended import create_access_token, get_jwt_identity
+import datetime
+
 
 app = Flask(__name__)
 basic_auth = HTTPBasicAuth()
+
+# JWT configuration
+app.config['JWT_SECRET_KEY'] = 'my-secret-key'
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(hours=1)
+jwt = JWTManager(app)
+
 
 # Users stored in memory with username, hashed password, and role
 users = {
@@ -43,6 +53,33 @@ def error_handler():
 @basic_auth.login_required
 def basic_protected():
     return "Basic Auth: Access Granted"
+
+
+# Login route to get JWT token
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+
+    if not data:
+        return jsonify({"error": "Missing JSON data"}), 400
+
+    username = data.get('username', None)
+    password = data.get('password', None)
+
+    if not username or not password:
+        return jsonify({"error": "Missing username or password"}), 400
+
+    if username not in users or \
+            not check_password_hash(users[username]["password"], password):
+        return jsonify({"error": "Invalid credentials"}), 401
+
+    # Create access token with user identity and role
+    access_token = create_access_token(
+        identity=username,
+        additional_claims={"role": users[username]["role"]}
+    )
+
+    return jsonify({"access_token": access_token})
 
 
 if __name__ == "__main__":
