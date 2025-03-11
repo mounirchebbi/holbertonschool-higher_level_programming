@@ -21,8 +21,7 @@ def List_Filtered_states(username, password, db_name, state_name):
     request = (
         "SELECT * FROM states "
         "WHERE name = '{}' "
-        "ORDER BY id ASC;".format(state_name)
-    )
+        "ORDER BY id ASC;".format(state_name))
     cursor.execute(request)
     response = cursor.fetchall()
 
