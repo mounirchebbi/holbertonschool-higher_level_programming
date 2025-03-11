@@ -18,13 +18,12 @@ def List_Filtered_states(username, password, db_name, state_name):
 
     # using cursor to fetch response
     cursor = db.cursor()
-    request = "SELECT * FROM states ORDER BY id ASC;"
+    request = "SELECT * FROM states WHERE name = '{}'ORDER BY id ASC;".format(state_name)
     cursor.execute(request)
     response = cursor.fetchall()
 
     # printing response
     for row in response:
-        if row[1] == state_name:
             print(row)
 
     # closing connexions
