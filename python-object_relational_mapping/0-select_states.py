@@ -4,6 +4,7 @@ import sys
 
 
 def List_states(username, password, db_name):
+    """connect to db to retrives recors from states table"""
 
     # connection to db
     db = MySQLdb.connect(
