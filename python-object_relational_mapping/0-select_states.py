@@ -22,7 +22,7 @@ def List_states(username, password, db_name):
 
     # printing response
     for row in response:
-        print(f"({row[0]}, '{row[1]}')")
+        print(row)
 
     # closing connexions
     cursor.close()
