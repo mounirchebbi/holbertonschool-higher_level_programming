@@ -7,6 +7,7 @@ from sqlalchemy.ext.declarative import declarative_base
 # create the base class for declarative models
 Base = declarative_base()
 
+
 class State(Base):
     """State class that inherits from Base"""
     __tablename__ = 'states'
