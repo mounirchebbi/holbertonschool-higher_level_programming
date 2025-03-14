@@ -26,7 +26,7 @@ def list_Filtered_states(username, password, db_name, state_name):
         "ORDER BY id ASC"
     )
     # parameter is tuple because mysql excpects iterable
-    cursor.execute(request, (state_name,)) 
+    cursor.execute(request, (state_name,))
     response = cursor.fetchall()
 
     # printing response
