@@ -33,7 +33,7 @@ if __name__ == "__main__":
 
     # Display results in the required format
     for state in states:
-        print(f"{state.id} : {state.name}")
+        print(f"{state.id}: {state.name}")
 
     # Close the session
     session.close()
