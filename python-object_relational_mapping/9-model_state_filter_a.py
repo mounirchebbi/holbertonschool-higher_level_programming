@@ -30,11 +30,11 @@ if __name__ == "__main__":
 
     # Query State objects containing 'a'
     states = (
-    session.query(State)
-    .filter(State.name.like('%a%'))
-    .order_by(State.id)
-    .all()
-    )
+        session.query(State)
+        .filter(State.name.like('%a%'))
+        .order_by(State.id)
+        .all()
+        )
 
     # Display result
     for state in states:
