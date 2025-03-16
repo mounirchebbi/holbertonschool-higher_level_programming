@@ -29,7 +29,7 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # Query all City objects with their associated State, ordered by city id
+    # Query all cities with their states, order by city id
     cities = (
         session.query(City, State)
         .join(State, City.state_id == State.id)
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         .all()
         )
 
-    # Display results in the required format
+    # Display result
     for city, state in cities:
         print(f"{state.name}: ({city.id}) {city.name}")
 
