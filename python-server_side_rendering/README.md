@@ -1,1 +1,1 @@
-python-server_side_rendering
+python-server_side_rendering:
