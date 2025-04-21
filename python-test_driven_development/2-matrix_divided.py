@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module to divide matrix"""
+
+
 def matrix_divided(matrix, div):
     """Divides all elements of a matrix by a number
     and returns a new matrix rounded to 2 decimal places."""
