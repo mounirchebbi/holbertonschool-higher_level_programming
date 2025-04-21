@@ -1,11 +1,15 @@
+#!/usr/bin/python3
 def matrix_divided(matrix, div):
-    """Divides all elements of a matrix by a number and returns a new matrix rounded to 2 decimal places."""
+    """Divides all elements of a matrix by a number
+    and returns a new matrix rounded to 2 decimal places."""
 
     # Validate matrix is a list of lists with int or float elements
     if (not isinstance(matrix, list) or
         not all(isinstance(row, list) for row in matrix) or
-        not all(isinstance(num, (int, float)) for row in matrix for num in row)):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+        not all(isinstance(num, (int, float))
+                for row in matrix for num in row)):
+        raise TypeError(
+            "matrix must be a matrix (list of lists) of integers/floats")
 
     # Validate all rows are of the same size
     row_lengths = [len(row) for row in matrix]
